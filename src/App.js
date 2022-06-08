@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import ThemeContext from "./ThemeContext";
+import useToggle from "./useToggle";
+import Navbar from "./Navbar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Random from "./Random";
+
+const StyledApp = styled.div`
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: ${({ light }) => (light ? "white" : "#242629")};
+	color: ${({ light }) => (light ? "rgba(0, 0, 0, 0.781)" : "white")};
+`;
 
 function App() {
+  const [light, toggleLight] = useToggle(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={[light, toggleLight]}>
+      <StyledApp light={light}>
+        <Navbar/>
+        <Routes>
+					<Route exact path='/random' element={<Random />} />
+					<Route path='/' element={<Home />} />
+				</Routes>
+      </StyledApp>
+    </ThemeContext.Provider>
   );
 }
 
