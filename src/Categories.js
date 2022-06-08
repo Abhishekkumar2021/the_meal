@@ -31,6 +31,11 @@ const StyledDiv = styled.div`
           border-radius: 20px;;
       }
   }
+  @media only screen and (max-width:484px){
+      .card{
+          height:auto;
+      }
+  }
   
 `;
 
