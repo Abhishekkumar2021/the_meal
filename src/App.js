@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Random from "./Random";
+import Categories from "./Categories";
 
 const StyledApp = styled.div`
 	width: 100%;
@@ -23,6 +24,7 @@ function App() {
         <Navbar/>
         <Routes>
 					<Route exact path='/random' element={<Random />} />
+					<Route exact path='/categories' element={<Categories />} />
 					<Route path='/' element={<Home />} />
 				</Routes>
       </StyledApp>

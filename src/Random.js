@@ -50,7 +50,7 @@ const StyledDiv = styled.div`
           background:${(props) => (props.light ? "white" : "#2b2e33")};
           color:${(props) => (props.light ? "orange" : "skyblue")};
           font-size:18px;
-          box-shadow:0 3px 10px 4px rgb(0,0,0,0.1);
+          box-shadow:0 3px 4px 2px rgb(0,0,0,0.15);
           transition:0.2s ease all;
           &:hover{
               transform:scale(1.05);
