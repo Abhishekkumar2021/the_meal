@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
     background-size: cover;
 	h1{
 		padding:20px;
-		background:rgb(256,256,256,0.3);
+		background:${(props) => (props.light ? "white" : "#2b2e33")};
 		margin-bottom:10px;
 		box-shadow:0 3px 20px rgb(0,0,0,0.1);
 		border-radius: 5px;
@@ -27,7 +27,7 @@ const StyledDiv = styled.div`
 	input{
 		box-shadow:0 3px 4px rgb(0,0,0,0.15);
 
-		color:${(props) => (props.light ? "orange" : "skyblue")};
+		color:${(props) => (props.light ? "black" : "white")};
 		max-width:100%;
 		padding:20px 35px;
 		border:none;
@@ -38,6 +38,8 @@ const StyledDiv = styled.div`
 		margin:10px 0;
 	}
 	a{
+		color:${(props) => (props.light ? "black" : "white")};
+
 		text-decoration: none;
 		padding:10px 20px;
 		background:${(props) => (props.light ? "white" : "#2b2e33")};

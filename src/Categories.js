@@ -22,7 +22,7 @@ const StyledDiv = styled.div`
       overflow-x: hidden;
       border-radius: 20px;
       background: ${(props) => (props.light ? "white" : "#2b2e33")};
-      padding: 15px;
+      padding: 25px 20px;
       box-shadow:0px 3px 5px rgb(0,0,0,0.2);
       h1{
           padding:5px 15px;
@@ -30,7 +30,7 @@ const StyledDiv = styled.div`
 
       }
       p{
-        margin:10px 0;
+        margin:20px 0;
       }
       img{
           border-radius: 20px;
@@ -38,9 +38,9 @@ const StyledDiv = styled.div`
       a{
          text-decoration: none;
          box-shadow:0px 3px 5px rgb(0,0,0,0.2);
-         padding:5px 10px;
+         padding:10px 20px;
          border-radius: 25px;
-          background:${(props) => (props.light ? "white" : "#2b2e43")};
+          background:${(props) => (props.light ? "white" : "#4c4c4c")};
           color:${(props) => (props.light ? "orange" : "skyblue")};
           font-size:16px;
 
