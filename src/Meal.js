@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
           a{
               text-decoration:none;
               background:rgb(256,256,256,0.3);
-              color:darkgreen;
+         color:white;
               padding:10px;
               box-shadow:0 0 10px 5px rgb(0,0,0,0.2);
               border-radius: 10px;
