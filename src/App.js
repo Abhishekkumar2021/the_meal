@@ -8,6 +8,8 @@ import Random from "./Random";
 import Categories from "./Categories";
 import Items from "./Items";
 import Meal from "./Meal";
+import Search from "./Search";
+import Error from "./Error";
 
 const StyledApp = styled.div`
 	width: 100%;
@@ -29,7 +31,9 @@ function App() {
 			<Route exact path='/categories' element={<Categories />} />
 			<Route exact path='/meals/:id' element={<Items />} />
 			<Route exact path='/meal/:id' element={<Meal />} />
-			<Route path='/' element={<Home />} />
+			<Route exact path='/search' element={<Search />} />
+			<Route exact path='/' element={<Home />} />
+			<Route  path='*' element={<Error />} />
 		</Routes>
       </StyledApp>
     </ThemeContext.Provider>

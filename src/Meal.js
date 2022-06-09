@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ThemeContext from "./ThemeContext";
 
@@ -92,8 +92,8 @@ const StyledDiv = styled.div`
 `;
 
 function Meal() {
+  const navigate = useNavigate();
   const [light] = useContext(ThemeContext);
-  const [num,setNum] = useState(0);
   const {id} = useParams();
   const [meal, setMeal] = useState({
     area: "",
@@ -112,7 +112,8 @@ function Meal() {
       );
       let ing = [];
       let i = 1;
-
+      if(!response.data.meals)
+      navigate("/jdfsjfdfjjd");
       const data = response.data.meals[0];
       while (data[`strIngredient${i}`]) {
         ing.push(data[`strIngredient${i}`]);
@@ -130,7 +131,7 @@ function Meal() {
       });
     };
     fetchData();
-  }, [num,id]);
+  }, [id,navigate]);
   return (
     <StyledDiv light={light}>
       <div className="img">
@@ -139,7 +140,7 @@ function Meal() {
           <a href={meal.source} className="more">Source</a>
           <a href={meal.youtube} className="more">Watch on YouTube</a>
           </div>
-          <button onClick={()=>setNum(num+1)}>Get Next Random Meal</button>
+
       </div>
       <div className="info">
           <h1 className="name">Name of the Meal is <span>{meal.name}</span></h1>
