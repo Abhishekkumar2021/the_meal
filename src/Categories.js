@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ThemeContext from "./ThemeContext";
 
@@ -13,6 +14,7 @@ const StyledDiv = styled.div`
   flex-wrap:wrap;
   gap:25px;
   .card{
+      position: relative;
       scroll-behavior: smooth;
       width:350px;
       height:500px;
@@ -27,13 +29,27 @@ const StyledDiv = styled.div`
           color:${(props) => (props.light ? "orange" : "skyblue")};
 
       }
+      p{
+        margin:10px 0;
+      }
       img{
-          border-radius: 20px;;
+          border-radius: 20px;
+      }
+      a{
+         text-decoration: none;
+         box-shadow:0px 3px 5px rgb(0,0,0,0.2);
+         padding:5px 10px;
+         border-radius: 25px;
+          background:${(props) => (props.light ? "white" : "#2b2e43")};
+          color:${(props) => (props.light ? "orange" : "skyblue")};
+          font-size:16px;
+
       }
   }
   @media only screen and (max-width:484px){
       .card{
           height:auto;
+          
       }
   }
   
@@ -48,7 +64,6 @@ function Categories() {
         "https://www.themealdb.com/api/json/v1/1/categories.php"
       );
       const data = response.data.categories;
-      console.log(data);
       let arr = [];
       for(let item of data){
           arr.push({cat:item.strCategory,src:item.strCategoryThumb, des:item.strCategoryDescription})
@@ -67,6 +82,9 @@ function Categories() {
               <h1>{item.cat}</h1>
               <img src={item.src} alt="items"/>
               <p>{item.des}</p>
+              <Link to={`/meals/${item.cat}`} >
+				 Explore Meals
+			 </Link>
           </div>
       })}
     </StyledDiv>
